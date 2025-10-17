@@ -28,6 +28,8 @@ public class DogApiBreedFetcher implements BreedFetcher {
     @Override
     public List<String> getSubBreeds(String breed) throws BreedNotFoundException {
         // return statement included so that the starter code can compile and run.
+        if(breed.substring(0,1).equals(" "))
+            breed = breed.substring(1);
         ArrayList<String> subBreeds = new ArrayList<>();
         final Request request = new Request.Builder()
                 .url("https://dog.ceo/api/breed/" + breed + "/list").build();
