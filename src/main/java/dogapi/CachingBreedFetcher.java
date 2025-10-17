@@ -28,9 +28,8 @@ public class CachingBreedFetcher implements BreedFetcher {
             callsMade--;
             return cashe.get(breed);}
         try{
-            ArrayList<String> list = (ArrayList<String>) fetcher.getSubBreeds(breed);
-            cashe.put(breed, list);
-            return list;
+            cashe.put(breed, fetcher.getSubBreeds(breed));
+            return cashe.get(breed);
         }catch (BreedNotFoundException e){
             throw new BreedNotFoundException(breed);
         }
